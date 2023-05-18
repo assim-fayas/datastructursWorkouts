@@ -1,0 +1,63 @@
+// adding numbers
+
+// function add(a) {
+//     return function (b) {
+//         return function (c) {
+
+//             return asim=(d)=>{
+//                 return a + b + c-d;
+//             }
+//         }
+
+//     }
+
+// }
+
+// const result = add(2)(3)(5)(8)
+// console.log(result);
+
+//multiplying numbers
+
+// function mult(a) {
+//     return function (b) {
+
+//         return a * b;
+
+//     }
+// }
+
+// const double = mult(2);
+
+// console.log("---------------The multiple of 2-----------");
+// console.log(double(1));
+// console.log(double(2));
+// console.log(double(3));
+// console.log(double(4));
+// console.log(double(5));
+// console.log(double(6));
+// console.log(double(7));
+// console.log(double(8));
+// console.log(double(9));
+// console.log(double(10));
+
+
+// const triple = mult(3);
+// console.log(triple(3));
+// console.log(triple(4));
+
+
+
+
+
+
+
+function curry(a) {
+    return function (b) {
+        return function (c) {
+
+            return a + b + c;
+        }
+    }
+}
+result =curry (2)(3)(4)
+console.log(result);
