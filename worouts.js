@@ -69,6 +69,6 @@ bst.insert(2)
 bst.insert(6)
 bst.insert(1)
 bst.insert(7)
-console.log(bst.search(bst.root,3))
+console.log(bst.search(bst.root,1))
 console.log(bst.isBst(bst.root))
 console.log(bst.isEmpty());
