@@ -153,14 +153,7 @@ class Binarysearchtree {
         this.inorder(root.right)
         console.log(root.value);
     }
-    min(root) {
-        if (!root.left) {
-            return root.value
-
-        } else {
-            return this.min(root.left)
-        }
-    }
+   
     max(root) {
         if (!root.right) {
             return root.value
@@ -168,6 +161,14 @@ class Binarysearchtree {
             return this.max(root.right)
         }
     }
+    min(root){
+if(!root.left){
+    return root.value
+}else{
+    return this.min(root.left)
+}
+    }
+   
   
 }
 const bst = new Binarysearchtree()
@@ -178,7 +179,7 @@ bst.insert(4)
 bst.insert(2)
 bst.insert(1)
 // bst.createMinHeap();
-bst.createMaxHeap()
+// bst.createMaxHeap()
 
 // console.log(bst.preorder(bst.root))
 // console.log(bst.inorder(bst.root))
@@ -190,7 +191,8 @@ bst.createMaxHeap()
 //  console.log(bst.search(bst.root,4))
 //  console.log(bst.search(bst.root,3))
 //  console.log(bst.search(bst.root,1))
-//  console.log( bst.min(bst.root));
-//  console.log( bst.max(bst.root));
+ console.log( bst.min(bst.root));
+ console.log( bst.max(bst.root));
+
 // console.log(bst.isEmpty());
 

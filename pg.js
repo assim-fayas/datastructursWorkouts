@@ -75,128 +75,254 @@
 
 //bst
 
+// class Node {
+//     constructor(value) {
+//         this.value = value
+//         this.right = null
+//         this.left = null
+//     }
+// }
+// class binarysearch {
+//     constructor() {
+//         this.root = null
+//     }
+//     isEmpty() {
+//         return this.root === null
+//     }
+//     insert(value) {
+//         const Newnode = new Node(value)
+//         if (this.isEmpty()) {
+//             this.root = Newnode
+//         } else {
+//             this.insertNode(this.root, Newnode)
+//         }
+//     }
+//     insertNode(root, newNode) {
+//         if (newNode.value < root.value) {
+//             if (root.left === null) {
+//                 root.left = newNode
+//             } else {
+//                 this.insertNode(root.left, newNode)
+//             }
+//         } else {
+//             if (root.right === null) {
+//                 root.right = newNode
+//             } else {
+//                 this.insertNode(root.right, newNode)
+//             }
+//         }
+//     }
+//     search(root, value) {
+//         if (!root) {
+//             return false
+//         } else {
+//             if (root.value === value) {
+//                 return true
+//             } else if (value < root.value) {
+//                 return this.search(root.left, value)
+//             }
+//             else {
+//                 return this.search(root.right, value)
+//             }
+//         }
+//     }
+//     isBst(root = this.root, minvalue = Number.MIN_SAFE_INTEGER, maxvalue = Number.MAX_SAFE_INTEGER) {
+//         if (root === null) {
+//             return true
+//         }
+//         if (root.value < minvalue || root.value > maxvalue) {
+//             return false
+//         }
+//         return this.isBst(root.left, minvalue, root.value - 1) && this.isBst(root.right, root.value + 1, maxvalue)
+
+//     }
+//     inorder(root) {
+//         if (root) {
+//             this.inorder(root.left)
+//             console.log(root.value);
+//             this.inorder(root.right)
+//         }
+//     }
+//     postorder(root) {
+//         if (root) {
+//             this.postorder(root.left)
+//             console.log(root.value);
+//             this.postorder(root.right)
+//         }
+//     }
+//     preorder(root) {
+//         if (root) {
+//             this.preorder(root.left)
+//             console.log(root.value);
+//             this.preorder(root.right)
+//         }
+//     }
+//    delete(value){
+//     this.root=this.deletenode(this.root,value)
+//    }
+//    deletenode(root,value){
+//     if(root===null){
+//         return root
+//     }
+//     if(value<root.value){
+//         root.left=this.deletenode(root.left,value)
+//     }else if(value>root.value){
+//         root.right=this.deletenode(root.right,value)
+//     }else{
+//         if(!root.left && !root.right){
+//             return null
+//         }
+//         if(!root.left){
+//             return root.right
+//         }else if(!root.right){
+//             return root.left
+//         }
+//         rootvalue=this.min(root.right)
+//         root.right=this.deletenode(root.right,root.value)
+//     }
+//     return root
+//    }
+
+// }
+
+// const bst = new binarysearch()
+// console.log(bst.isEmpty());
+// bst.insert(1)
+// bst.insert(2)
+// bst.insert(16)
+// bst.insert(14)
+// bst.insert(10)
+
+// console.log(bst.isEmpty());
+// console.log(bst.search(bst.root, 20))
+// console.log("is bst", bst.isBst());
+// bst.inorder(bst.root)
+// console.log("ccccccccccccccc");
+// bst.delete(10)
+// bst.inorder(bst.root)
+
+
 class Node {
     constructor(value) {
         this.value = value
-        this.right = null
         this.left = null
+        this.right = null
     }
+
 }
-class binarysearch {
+class BinarySearch {
     constructor() {
         this.root = null
     }
     isEmpty() {
         return this.root === null
     }
-    insert(value) {
-        const Newnode = new Node(value)
+    Insert(value) {
+        const node = new Node(value)
         if (this.isEmpty()) {
-            this.root = Newnode
+            this.root = node
         } else {
-            this.insertNode(this.root, Newnode)
+            this.insertNode(this.root, node)
         }
     }
-    insertNode(root, newNode) {
-        if (newNode.value < root.value) {
+    insertNode(root, node) {
+        if (node.value < root.value) {
             if (root.left === null) {
-                root.left = newNode
+                root.left = node
             } else {
-                this.insertNode(root.left, newNode)
+                this.insertNode(root.left, node)
             }
         } else {
             if (root.right === null) {
-                root.right = newNode
+                root.right = node
             } else {
-                this.insertNode(root.right, newNode)
+                this.insertNode(root.right, node)
             }
         }
     }
     search(root, value) {
         if (!root) {
             return false
-        } else {
-            if (root.value === value) {
-                return true
-            } else if (value < root.value) {
-                return this.search(root.left, value)
-            }
-            else {
-                return this.search(root.right, value)
-            }
         }
-    }
-    isBst(root = this.root, minvalue = Number.MIN_SAFE_INTEGER, maxvalue = Number.MAX_SAFE_INTEGER) {
-        if (root === null) {
+        else{
+        if (root.value === value) {
             return true
+        } else if (value < root.value) {
+            return this.search(root.left, value)
         }
-        if (root.value < minvalue || root.value > maxvalue) {
-            return false
+        else {
+            return this.search(root.right, value)
         }
-        return this.isBst(root.left, minvalue, root.value - 1) && this.isBst(root.right, root.value + 1, maxvalue)
+    }
+    }
+    delete(value){
+     this.root=this.deleteNode(this.root,value)
+    }
+    deleteNode(root,value){
+        if(root===null){
+            return root
+        }
+        if(value<root.value){
+            root.left=this.deleteNode(root.left,value)
+        }
+        else if(value>root.value){
+            root.right=this.deleteNode(root.right,value)
+        }else{
+            if(!root.left && !root.right){
+                return null
+            }
+            if(!root.left){
+                return root.right
+            }
+            else if(!root.right){
+                return root.left
+            }
+            root.value=this.min(root.right)
+            root.right=this.deleteNode(root.right,root.value)
 
-    }
-    inorder(root) {
-        if (root) {
-            this.inorder(root.left)
-            console.log(root.value);
-            this.inorder(root.right)
         }
-    }
-    postorder(root) {
-        if (root) {
-            this.postorder(root.left)
-            console.log(root.value);
-            this.postorder(root.right)
-        }
-    }
-    preorder(root) {
-        if (root) {
-            this.preorder(root.left)
-            console.log(root.value);
-            this.preorder(root.right)
-        }
-    }
-   delete(value){
-    this.root=this.deletenode(this.root,value)
-   }
-   deletenode(root,value){
-    if(root===null){
         return root
     }
-    if(value<root.value){
-        root.left=this.deletenode(root.left,value)
-    }else if(value>root.value){
-        root.right=this.deletenode(root.right,value)
-    }else{
-        if(!root.left && !root.right){
-            return null
-        }
+    min(root){
         if(!root.left){
-            return root.right
-        }else if(!root.right){
-            return root.left
+            return root.value
+        }else{
+            return this.min(root.left)
         }
-        rootvalue=this.min(root.right)
-        root.right=this.deletenode(root.right,root.value)
     }
-    return root
-   }
-
+inorder(root){
+    if(root){
+    this.inorder(root.left)
+    console.log(root.value);
+    this.inorder(root.right)
+    }
+}
+isBst(root=this.root,minvalue=Number.MIN_SAFE_INTEGER,maxvalue=Number.MAX_SAFE_INTEGER){
+    if(root===null){
+        return true
+    }if(root.value<minvalue || root.value>maxvalue){
+        return false
+    }
+    return this.isBst(root.left,minvalue,root.value-1) && this.isBst(root.right,root.value+1,root.right)
 }
 
-const bst = new binarysearch()
+}
+const bst = new BinarySearch()
 console.log(bst.isEmpty());
-bst.insert(1)
-bst.insert(2)
-bst.insert(16)
-bst.insert(14)
-bst.insert(10)
+bst.Insert(1)
+bst.Insert(12)
+bst.Insert(3)
+bst.Insert(33)
+bst.Insert(9)
+bst.Insert(2)
+bst.Insert(11)
+bst.Insert(13)
+bst.Insert(17)
 
 console.log(bst.isEmpty());
-console.log(bst.search(bst.root, 20))
-console.log("is bst", bst.isBst());
+console.log(bst.search(bst.root,3)); 
+bst.delete(3)
+
 bst.inorder(bst.root)
-console.log("ccccccccccccccc");
-bst.delete(10)
-bst.inorder(bst.root)
+console.log( bst.isBst(bst.root));
+ 
