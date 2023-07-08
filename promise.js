@@ -216,27 +216,70 @@ If the number of functions grows, you may end up
 
 
 
- function getname(a,b){
-    return new Promise((resolve,reject)=> {
-        let sum=a+b;
+//  function getname(a,b){
+//     return new Promise((resolve,reject)=> {
+//         let sum=a+b;
+//         setTimeout(() => {
+//             resolve(sum)
+//         }, 3000);
+//     })
+   
+// }
+//  function getlastname(sum){
+
+//     return new Promise((resolve,reject)=> {
+//        let rslt= sum+5
+//         setTimeout(() => {
+//             resolve()
+//         }, 2000);
+//     })
+   
+// }
+
+
+// Promise.all([getname(2,5),getlastname()]).then((add)=>{
+//         console.log(add);
+// })
+
+
+
+
+function sum(a,b){
+    return new Promise((resolve,reject)=>{
+        if(a==0){
+            reject("the number is 0")
+        }else{
+            resolve(a+b)
+        }
+    })
+}
+sum(0,2).then((rslt)=>{
+    console.log(rslt);
+})
+.catch((error)=>{
+    console.log(error);
+});
+
+function sub(a,b) {
+
+    return new Promise((resolve,reject)=>{
+    
         setTimeout(() => {
-            resolve(sum)
-        }, 3000);
+         resolve(a+b)
+       },2000)
+
+       if (!a || !b ){
+        reject("error occured")
+       }
+
     })
    
 }
- function getlastname(sum){
-
-    return new Promise((resolve,reject)=> {
-       let rslt= sum+5
-        setTimeout(() => {
-            resolve()
-        }, 2000);
-    })
-   
-}
-
-
-Promise.all([getname(2,5),getlastname()]).then((add)=>{
-        console.log(add);
+    
+sub(4,4) 
+.then((rslt)=>{
+    console.log(rslt);
+})
+.catch((error)=>{
+    console.log(error);
 })
