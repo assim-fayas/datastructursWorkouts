@@ -90,9 +90,9 @@
 
 // let calculator={
 
-//     read(value1,value2){   
+//     read(value1,value2){
 //             this.value1=value1
-//             this.value2=value2       
+//             this.value2=value2
 //            },
 
 //            sum(){
@@ -143,7 +143,7 @@
 
 
 
-// higher order function 
+// higher order function
 
 // let arr=[44,3,21,6,4]
 
@@ -191,7 +191,7 @@
 
 // Question 1:
 // Create an object called person with a property called name that has the value "John". Write a function called sayHello that takes one argument,
-//  greeting, and prints "Hello, {greeting}! My name is {name}" where {greeting} is the argument passed to the function and {name} is the value of 
+//  greeting, and prints "Hello, {greeting}! My name is {name}" where {greeting} is the argument passed to the function and {name} is the value of
 //  the name property of the person object. Use the call() function to invoke the sayHello function with the argument "Good morning".
 
 
@@ -208,7 +208,7 @@
 
 
 // Question 2:
-// Define a function called getFullName that takes two arguments, firstName and lastName, and returns the full name in the format 
+// Define a function called getFullName that takes two arguments, firstName and lastName, and returns the full name in the format
 // "{firstName} {lastName}". Now, create an object called user with properties firstName and lastName having
 //  values "John" and "Doe" respectively. Use the call() function to invoke the getFullName function with the user object
 //   as the this value and store the result in a variable called fullName.
@@ -230,9 +230,9 @@
 
 
 //  Question 3:
-// Create a function called calculateArea that calculates the area of a rectangle using the formula width * height. 
-// Define an object called rectangle with properties width and height having values 10 and 5 respectively. 
-// Use the call() function to invoke the calculateArea function with the rectangle object as the this value and 
+// Create a function called calculateArea that calculates the area of a rectangle using the formula width * height.
+// Define an object called rectangle with properties width and height having values 10 and 5 respectively.
+// Use the call() function to invoke the calculateArea function with the rectangle object as the this value and
 // store the result in a variable called area.
 
 // function calculateArea(height, width) {
@@ -251,7 +251,7 @@
 
 
 // Question:
-// Write a function called findMax that finds the maximum value in an array of numbers. 
+// Write a function called findMax that finds the maximum value in an array of numbers.
 // Use the apply() method to invoke the Math.max() function with the array as arguments. Finally, return the maximum value found.
 
 // For example, findMax([4, 8, 2, 10, 6]) should return 10.
@@ -278,13 +278,246 @@
 //   regardless of how it is called.
 
 
-function greet(message) {
-    console.log(`${message}, ${this.name}!`);
-  }
+// function greet(message) {
+//     console.log(`${message}, ${this.name}!`);
+//   }
+
+//   var person = {
+//     name: "John"
+//   };
+
+//   var greetPerson = greet.bind(person, "Hello");
+//   greetPerson();
+
+
+// constructor function
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+
+//   this.sayhellow=function(){
+//     console.log(`Hello ${this.name} , you are ${this.age} years old `);
+//   }
+// }
+
+// var user = new Person("John", 29);
+
+
+// console.log(user);
+// user.sayhellow()
+
+
+// object destructuring
+
+// let user = {
+//   name: "asim",
+//   age: 12,
+//   address: {
+//     city: "calicut",
+//     state: "kerala"
+
+//   }
+// }
+
+// const { name:lname, age:page, address: { city, state } } = user
+
+
+// console.log(lname);
+// console.log(page);
+
+
+//inheritance
+
+// class animal {
+// constructor(legs){
+//  this.legs=legs
+// }
+// walk(){
+//   console.log(`this animal walk on ${this.legs} legs`);
+// }
+// }
+
+// class dog extends animal{
+//   constructor(legs){
+//     super(legs)
+//   }
+//   cry(){
+//     console.log("the dog is barking");
+//   }
+// }
+// const shepered =new dog(4)
+
+// shepered.walk()
+// shepered.cry()
+
+
+//IIF
+
+// let rslt=(function(a,b){
+// return a+b;
+// })(1,2)
+
+// console.log(rslt);
+
+// promise
+
+// function sum(a,b){
+//   return new Promise((resolve,reject)=>{
+//     if(a==0){
+//       reject("plese enter number greater than zero")
+//     }else{
+//       resolve(a+b)
+//     }
+//   })
+// }
+
+// sum(8,1)
+// .then((rslt)=>{
+//   console.log(rslt);
+// })
+
+// .catch((error)=>{
+//   console.log(error);
+// })
+
+// const promise =new Promise((resolve,reject)=>{
+//   setTimeout(()=>{
+// resolve("resolve mesage")
+//   },1000)
+// })
+// .then((message)=>{
+// console.log(message);
+// return new Promise((resolve,reject)=>{
+//   setTimeout(()=>{
+//   resolve("resolved second message")
+// },3000)
+// }).then((message1)=>{
+//   console.log(message1);
+// })
+// })
+
+
+// function sum(c) {
+//   return new Promise((resolve, reject) => {
+
+//     if(c === undefined){
+//     reject("oops value is empty")
+//     }else{
+//       resolve(c)
+//     }
+//   })
+// }
+// let sum3
+// let sum1=3
+//  let sum2=4
+
+// Promise.any([sum(sum3), sum(sum2), sum(sum1)])
+//   .then((value) => {
+//     console.log(value);
+//     // console.log(value[0]+value[1]+value[2]);
+//   })
+//   .catch((error) => {
+//     console.error("Error:", error);
+//   })
+
+
+// call back function
+
+// function greet(name,cb){
+// console.log("hai,welcome");
+
+// cb(name)
+// }
+
+// function person(name){
+//   console.log(`how are you ${name}`);
+// }
+
+// greet("Asim",person)
+
+
+// async && await
+
+// function getData() {
+
+//   return new Promise((resolve, reject) => {
+
+//     setTimeout(() => {
+//       let data = { name: "asim", place: "vatakara" }
+
+
+//       resolve(data)
+
+//     }, 1000)
+
+
+//   })
+
+// }
+
+// async function getUser() {
+//   try {
+
+//     let userData = await getData()
+//     return userData
+//   }
+//   catch (error) {
+//     console.log("error :", error.message);
+//     throw error
+//   }
+
+// }
+
+// getUser()
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((error) => {
+//     console.error("error:", error);
+//   })
+//   .finally(()=>{
+//     console.log(" user deleted");
+//   })
+
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+
+//   greet() {
+//     console.log(`Hello, my name is ${this.name} and my age is ${this.age}`);
+//   }
+// }
+
+// class Student extends Person {
+//   constructor(name, age, school) {
+//     super(name, age);
+//     this.school = school;
+//   }
+
+//   study() {
+//     console.log(`I'm studying at ${this.school}`);
+//   }
+// }
+
+// const student=new Student("nameer",22,"panagodi")
+// student.greet()
+// student.study()
+
+
+var y = 20;
+
+function bar() {
   
-  var person = {
-    name: "John"
-  };
+  var y = 200;
   
-  var greetPerson = greet.bind(person, "Hello");
-  greetPerson();
+  function baz() {  
+      console.log(y);
+    }
+
+    baz();
+}
+
+bar();
