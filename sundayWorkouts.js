@@ -507,17 +507,25 @@
 // student.study()
 
 
-var y = 20;
+// var y = 20;
 
-function bar() {
+// function bar() {
   
-  var y = 200;
+//   var y = 200;
   
-  function baz() {  
-      console.log(y);
-    }
+//   function baz() {  
+//       console.log(y);
+//     }
 
-    baz();
-}
+//     baz();
+// }
 
-bar();
+// bar();
+
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((accumulator, currentNumber) => {
+  return accumulator + currentNumber;
+});
+
+console.log(sum);
