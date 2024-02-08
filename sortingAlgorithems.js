@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // //bubble sort
 // function bubble(a) {
 //     len = a.length
@@ -19,6 +20,34 @@
 //     for (let i = 0; i < len; i++) {
 //         minIndex = i
 //         for (let j = i + 1; j < len; j++) {
+=======
+//bubble sort
+function bubble(a) {
+    len = a.length
+    for (i = 0; i < len - 1; i++) {
+        for (j = 0; j < len - 1 - i; j++) {
+            if (a[j] > a[j + 1]) {
+                temp = a[j]
+                a[j] = a[j + 1]
+                a[j + 1] = temp
+            }
+        }
+    }
+    return a
+}
+
+
+
+
+
+// //selection sort
+function selection(arr) {
+    let len = arr.length
+    let minIndex, temp
+    for (let i = 0; i < len; i++) {
+        minIndex = i
+        for (let j = i + 1; j < len; j++) {
+>>>>>>> 5beb8bbdd98da13f75ac19f1c4d12c49270fec01
 
 //             if (arr[j] < arr[minIndex]) {
 //                 minIndex = j
@@ -31,7 +60,12 @@
 //     return arr
 // }
 
+<<<<<<< HEAD
 // // //insertion sort
+=======
+
+// //insertion sort
+>>>>>>> 5beb8bbdd98da13f75ac19f1c4d12c49270fec01
 
 // function insertionsort(arr) {
 //     len = arr.length
@@ -48,8 +82,12 @@
 //     }
 //     return arr
 
+<<<<<<< HEAD
 // }
 // // console.log(insertionsort([111, 2, 3, 7, 2, 3, 6, 5, 1]));
+=======
+}
+>>>>>>> 5beb8bbdd98da13f75ac19f1c4d12c49270fec01
 
 // //merge sort
 // function mergesort(arr) {
@@ -62,6 +100,7 @@
 //     let left = arr.slice(0, middle)
 //     let right = arr.slice(middle)
 
+<<<<<<< HEAD
 //     return merge(mergesort(left), mergesort(right))
 // }
 // function merge(left, right) {
@@ -84,6 +123,31 @@
 //     return arr
 // }
 // // console.log(mergesort([111, 2, 3, 7, 2, 3, 6, 5, 1]));
+=======
+    return merge(mergesort(left), mergesort(right))
+}
+
+function merge(left, right) {
+    let arr = []
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift())
+        } else {
+            arr.push(right.shift())
+        }
+    }
+    while (left.length) {
+        arr.push(left.shift())
+    }
+    while (right.length) {
+        arr.push(right.shift())
+    }
+
+
+    return arr
+}
+
+>>>>>>> 5beb8bbdd98da13f75ac19f1c4d12c49270fec01
 
 //quick sort
 
@@ -107,6 +171,7 @@ function quicksort(arr) {
 }
 console.log(quicksort([111, 2, 3, 7, 2, 3, 6, 5, 1]));
 
+<<<<<<< HEAD
 // function insertionsort(arr) {
 //     let length = arr.length
 //     let current
@@ -131,6 +196,8 @@ console.log(quicksort([111, 2, 3, 7, 2, 3, 6, 5, 1]));
 
 
 
+=======
+>>>>>>> 5beb8bbdd98da13f75ac19f1c4d12c49270fec01
 
 // ////////////////////////////////////////////////////////////
 
@@ -206,6 +273,7 @@ console.log(quicksort([111, 2, 3, 7, 2, 3, 6, 5, 1]));
 // queue.dequeue()
 // console.log(queue.peek())
 // queue.print()
+<<<<<<< HEAD
 
 // bubble sort
 
@@ -316,3 +384,5 @@ console.log(quicksort([111, 2, 3, 7, 2, 3, 6, 5, 1]));
 //     return [...quicksort(left), pivot, ...quicksort(right)];
 // }
 // console.log(quicksort([7, 5, 43, 4, 56]));
+=======
+>>>>>>> 5beb8bbdd98da13f75ac19f1c4d12c49270fec01
