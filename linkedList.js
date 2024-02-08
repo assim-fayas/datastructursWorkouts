@@ -312,8 +312,8 @@ linkedList.add(6)
 linkedList.add(11)
 linkedList.add(3)
 linkedList.add(7)
-// linkedList.insertAt(2, 5)
-// linkedList.removeFrom(2)
+linkedList.insertAt(2, 5)
+linkedList.removeFrom(2)
 linkedList.removeFrom(5)
 
 
