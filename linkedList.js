@@ -184,142 +184,172 @@
 
 // linked list with tail implementation
 
-class Node {
-    constructor(value) {
-        this.next = null
-        this.value = value
-    }
-}
+// class Node {
+//     constructor(value) {
+//         this.next = null
+//         this.value = value
+//     }
+// }
 
-class LinkedList {
-    constructor() {
-        this.head = null
-        this.tail = null
-        this.size = 0
-    }
+// class LinkedList {
+//     constructor() {
+//         this.head = null
+//         this.tail = null
+//         this.size = 0
+//     }
 
-    add(value) {
-        const node = new Node(value)
-        if (this.head === null) {
-            this.head = node
+//     add(value) {
+//         const node = new Node(value)
+//         if (this.head === null) {
+//             this.head = node
 
-        } else {
-            this.tail.next = node
-        }
-        this.tail = node
-        this.size++
-    }
+//         } else {
+//             this.tail.next = node
+//         }
+//         this.tail = node
+//         this.size++
+//     }
 
-    getSize() {
-        return this.size
-    }
-
-
-    get(index) {
-        let current = this.head
-        let i = 0
-        while (i < index) {
-            current = current.next
-            i++
-        }
-        return current.value
-    }
+//     getSize() {
+//         return this.size
+//     }
 
 
-    printAll() {
-        let current = this.head
-
-        while (current !== null) {
-
-            console.log(current.value);
-            current = current.next
-
-        }
-
-    }
-
-    insertAt(index, data) {
-        if (index == 0) {
-            const node = new Node(data)
-            node.next = this.head
-            this.head = node
-
-        } else {
-            let curr = this.head
-            let prev = null
-            let i = 0
-            while (i < index) {
-                prev = curr
-                curr = curr.next
-                i++
-
-            }
-            const node = new Node(data)
-            node.next = curr
-            prev.next = node
+//     get(index) {
+//         let current = this.head
+//         let i = 0
+//         while (i < index) {
+//             current = current.next
+//             i++
+//         }
+//         return current.value
+//     }
 
 
-        }
-        this.size++
-    }
+//     printAll() {
+//         let current = this.head
+
+//         while (current !== null) {
+
+//             console.log(current.value);
+//             current = current.next
+
+//         }
+
+//     }
+
+//     insertAt(index, data) {
+//         if (index == 0) {
+//             const node = new Node(data)
+//             node.next = this.head
+//             this.head = node
+
+//         } else {
+//             let curr = this.head
+//             let prev = null
+//             let i = 0
+//             while (i < index) {
+//                 prev = curr
+//                 curr = curr.next
+//                 i++
+
+//             }
+//             const node = new Node(data)
+//             node.next = curr
+//             prev.next = node
 
 
-    removeFrom(index) {
-
-        if (index == 0) {
-            this.head = this.head.next
-
-        } else if (index == this.size - 1) {
-            let curr = this.head
-            let prev = null
-            let i = 0
-            while (i < index) {
-                prev = curr
-                curr = curr.next
-                i++
-            }
-            prev.next = null
-            this.tail = prev
-
-        } else {
-            let curr = this.head
-            let prev = null
-            let i = 0
-
-            while (i < index) {
-                prev = curr
-                curr = curr.next
-                i++
-
-            }
-            prev.next = curr.next
-
-        }
-        this.size--
-
-    }
+//         }
+//         this.size++
+//     }
 
 
+//     removeFrom(index) {
+
+//         if (index == 0) {
+//             this.head = this.head.next
+
+//         } else if (index == this.size - 1) {
+//             let curr = this.head
+//             let prev = null
+//             let i = 0
+//             while (i < index) {
+//                 prev = curr
+//                 curr = curr.next
+//                 i++
+//             }
+//             prev.next = null
+//             this.tail = prev
+
+//         } else {
+//             let curr = this.head
+//             let prev = null
+//             let i = 0
+
+//             while (i < index) {
+//                 prev = curr
+//                 curr = curr.next
+//                 i++
+
+//             }
+//             prev.next = curr.next
+
+//         }
+//         this.size--
+
+//     }
 
 
 
-}
-const linkedList = new LinkedList()
-
-linkedList.add(12)
-linkedList.add(10)
-linkedList.add(6)
-linkedList.add(11)
-linkedList.add(3)
-linkedList.add(7)
-linkedList.insertAt(2, 5)
-linkedList.removeFrom(2)
-linkedList.removeFrom(5)
 
 
-linkedList.printAll()
+// }
+// const linkedList = new LinkedList()
 
-console.log("value : ", linkedList.get(4));
-console.log(linkedList.getSize());
+// linkedList.add(12)
+// linkedList.add(10)
+// linkedList.add(6)
+// linkedList.add(11)
+// linkedList.add(3)
+// linkedList.add(7)
+// linkedList.insertAt(2, 5)
+// linkedList.removeFrom(2)
+// linkedList.removeFrom(5)
 
 
+// linkedList.printAll()
+
+// console.log("value : ", linkedList.get(4));
+// console.log(linkedList.getSize());
+
+
+
+// let arr = [1, 3, 3, 3, 4, 3, 3, 3]
+// function deleteDupValue(arr) {
+//     let length = arr.length
+//     let recheck = 0
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[i] == arr[j]) {
+
+//                 for (let k = j; k < arr.length - 1; k++) {
+//                     arr[k] = arr[k + 1]
+
+//                 }
+
+
+//                 arr.length--
+//                 recheck++
+
+//             }
+//             if (recheck != 0) {
+//                 j--
+//                 recheck = 0
+//             }
+
+//         }
+//     }
+//     return arr
+// }
+
+// console.log(deleteDupValue(arr)); 
