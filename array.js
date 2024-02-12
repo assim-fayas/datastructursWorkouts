@@ -12,7 +12,7 @@
 // }
 
 
-
+//leetcode 26
 
 var removeDuplicates = function (nums) {
   let count = 0
