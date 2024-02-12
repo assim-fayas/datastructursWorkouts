@@ -1,29 +1,29 @@
 // Creating a hash table:
 
 class HashTable {
-    constructor() {
-        this.table = new Array(137);
-        this.values = [];
-    }
+  constructor() {
+    this.table = new Array(137);
 
-    hash(string) {
-        let hash = 0;
-        for (let i = 0; i < string.length; i++) {
-            hash += string.charCodeAt(i);
-        }
-        return hash % this.table.length;
-    }
+  }
 
-    put(key, value) {
-        const index = this.hash(key);
-        this.table[index] = key;
-        this.values[index] = value;
+  hash(string) {
+    let hash = 0;
+    for (let i = 0; i < string.length; i++) {
+      hash += string.charCodeAt(i);
     }
+    return hash % this.table.length;
+  }
 
-    get(key) {
-        const index = this.hash(key);
-        return this.values[index];
-    }
+  put(key, value) {
+    const index = this.hash(key);
+    this.table[index] = value;
+
+  }
+
+  get(key) {
+    const index = this.hash(key);
+    return this.table[index];
+  }
 }
 
 const hashTable = new HashTable();
@@ -33,54 +33,54 @@ console.log(hashTable.get("apple")); // Output: 2.50
 console.log(hashTable.get("banana")); // Output: 1.50
 
 
-// Checking if a string is an anagram using a hash table:
+// // Checking if a string is an anagram using a hash table:
 
-function isAnagram(str1, str2) {
-  if (str1.length !== str2.length) {
-    return false;
-  }
+// function isAnagram(str1, str2) {
+//   if (str1.length !== str2.length) {
+//     return false;
+//   }
 
-  const table = new Map();
-  for (let i = 0; i < str1.length; i++) {
-    const char = str1.charAt(i);
-    table.set(char, table.get(char) + 1 || 1);
-  }
+//   const table = new Map();
+//   for (let i = 0; i < str1.length; i++) {
+//     const char = str1.charAt(i);
+//     table.set(char, table.get(char) + 1 || 1);
+//   }
 
-  for (let i = 0; i < str2.length; i++) {
-    const char = str2.charAt(i);
-    if (!table.has(char)) {
-      return false;
-    }
-    table.set(char, table.get(char) - 1);
-    if (table.get(char) < 0) {
-      return false;
-    }
-  }
+//   for (let i = 0; i < str2.length; i++) {
+//     const char = str2.charAt(i);
+//     if (!table.has(char)) {
+//       return false;
+//     }
+//     table.set(char, table.get(char) - 1);
+//     if (table.get(char) < 0) {
+//       return false;
+//     }
+//   }
 
-  return true;
-}
+//   return true;
+// }
 
-console.log(isAnagram("listen", "silent")); // Output: true
-console.log(isAnagram("listen", "loud")); // Output: false
+// console.log(isAnagram("listen", "silent")); // Output: true
+// console.log(isAnagram("listen", "loud")); // Output: false
 
 
 
-// Finding the first non-repeating character in a string using a hash table
+// // Finding the first non-repeating character in a string using a hash table
 
-function firstNonRepeatingChar(str) {
-  const table = new Map();
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charAt(i);
-    table.set(char, table.get(char) + 1 || 1);
-  }
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charAt(i);
-    if (table.get(char) === 1) {
-      return char;
-    }
-  }
-  return null;
-}
+// function firstNonRepeatingChar(str) {
+//   const table = new Map();
+//   for (let i = 0; i < str.length; i++) {
+//     const char = str.charAt(i);
+//     table.set(char, table.get(char) + 1 || 1);
+//   }
+//   for (let i = 0; i < str.length; i++) {
+//     const char = str.charAt(i);
+//     if (table.get(char) === 1) {
+//       return char;
+//     }
+//   }
+//   return null;
+// }
 
-console.log(firstNonRepeatingChar("aabbcdd")); // Output: "c"
-console.log(firstNonRepeatingChar("aabbcc")); // Output: null
+// console.log(firstNonRepeatingChar("aabbcdd")); // Output: "c"
+// console.log(firstNonRepeatingChar("aabbcc")); // Output: null
