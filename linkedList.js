@@ -184,10 +184,12 @@
 
 // linked list with tail implementation
 
+
+
 class Node {
     constructor(value) {
-        this.next = null
         this.value = value
+        this.next = null
     }
 }
 
@@ -198,128 +200,215 @@ class LinkedList {
         this.size = 0
     }
 
-    add(value) {
+    prepend(value) {
         const node = new Node(value)
-        if (this.head === null) {
+        if (this.head == null) {
+
             this.head = node
-
+            this.tail = node
         } else {
-            this.tail.next = node
-        }
-        this.tail = node
-        this.size++
-    }
 
-    getSize() {
-        return this.size
-    }
-
-
-    get(index) {
-        let current = this.head
-        let i = 0
-        while (i < index) {
-            current = current.next
-            i++
-        }
-        return current.value
-    }
-
-
-    printAll() {
-        let current = this.head
-
-        while (current !== null) {
-
-            console.log(current.value);
-            current = current.next
-
-        }
-
-    }
-
-    insertAt(index, data) {
-        if (index == 0) {
-            const node = new Node(data)
             node.next = this.head
             this.head = node
 
+        }
+
+        this.size++
+    }
+
+    append(value) {
+
+        if (this.head == null) {
+            this.prepend(value)
         } else {
+            let node = new Node(value)
+            this.tail.next = node
+            this.tail = node
+            this.size++
+        }
+    }
+
+    insertValueAt(index, value) {
+
+        if (index == 0) {
+            this.prepend(value)
+            return
+        } else if (index == this.size) {
+            this.append(value)
+            return
+        } else {
+            const node = new Node(value)
             let curr = this.head
             let prev = null
-            let i = 0
-            while (i < index) {
+            let currsize = 0
+            while (currsize < index) {
                 prev = curr
-                curr = curr.next
-                i++
 
+                curr = curr.next
+
+                currsize++
             }
-            const node = new Node(data)
+
+
             node.next = curr
             prev.next = node
+        }
+        this.size++
 
+    }
+    insertValueAfter(value, insertvalue) {
+        if (this.tail == value) {
+            this.append(value)
+            return
+        } else {
+            let curr = this.head
+            let nex = this.head.next
+            while (curr.value != value) {
+
+                curr = curr.next
+                nex = curr.next
+
+            }
+            const node = new Node(insertvalue)
+            node.next = nex
+            curr.next = node
+
+        }
+        this.size++
+    }
+    insertValueBefore(value, insertValue) {
+        if (this.size <= 1) {
+            this.prepend(insertValue)
+            return
+        } else {
+            let prev = null
+            let curr = this.head
+            while (curr.value != value) {
+                prev = curr
+                curr = curr.next
+            }
+            const node = new Node(insertValue)
+            node.next = curr
+            prev.next = node
 
         }
         this.size++
     }
 
-
-    removeFrom(index) {
-
-        if (index == 0) {
+    deleteByIndex(index) {
+        if (index <= 0) {
+            console.log('linked list is empty')
+        } else if (index == 0) {
             this.head = this.head.next
+
 
         } else if (index == this.size - 1) {
             let curr = this.head
             let prev = null
-            let i = 0
-            while (i < index) {
+
+            while (curr.next) {
                 prev = curr
                 curr = curr.next
-                i++
             }
             prev.next = null
+            this.tail = prev
+        } else {
+
+            let curr = this.head
+            let prev = null
+            let idx = 0
+            while (idx < index) {
+                prev = curr
+                curr = curr.next
+                idx++
+            }
+            prev.next = curr.next
+            curr.next = null
+        }
+        this.size--
+    }
+    deleteByValue(value) {
+        if (value == this.head.value) {
+            this.head = this.head.next
+        } else if (value == this.tail.value) {
+            let curr = this.head
+            let prev = null
+            while (curr.value != value) {
+                prev = curr
+                curr = curr.next
+            }
+            prev.next = curr.next
             this.tail = prev
 
         } else {
             let curr = this.head
             let prev = null
-            let i = 0
-
-            while (i < index) {
+            while (curr.value != value) {
                 prev = curr
                 curr = curr.next
-                i++
-
             }
+
             prev.next = curr.next
+            curr = null
+
 
         }
         this.size--
+    }
+    reverse() {
+
+        let curr = this.head
+        let prev = null
+        while (curr) {
+            let Next = curr.next
+            curr.next = prev
+            if (curr.next == null) {
+                this.tail = curr
+            }
+            prev = curr
+            curr = Next
+
+        }
+        this.head = prev
+
+
 
     }
 
 
 
+    print() {
 
+        if (this.size == 0) {
+            console.log("The Linked List is Empty please add the value")
+            return
+        }
+
+
+        let curr = this.head
+
+        while (curr) {
+            console.log(curr.value)
+            curr = curr.next
+
+        }
+
+    }
 
 }
-const linkedList = new LinkedList()
 
-linkedList.add(12)
-linkedList.add(10)
-linkedList.add(6)
-linkedList.add(11)
-linkedList.add(3)
-linkedList.add(7)
-linkedList.insertAt(2, 5)
-linkedList.removeFrom(2)
-linkedList.removeFrom(5)
-
-
-linkedList.printAll()
-
-console.log("value : ", linkedList.get(4));
-console.log(linkedList.getSize());
-
-
+const list = new LinkedList()
+list.append(1)
+list.append(3)
+list.append(5)
+list.append(0)
+list.append(1)
+list.append(8)
+list.append(10)
+list.append(11)
+// list.insertValueAfter(10,10)
+// list.insertValueBefore(8,88)
+// list.insertValueAt(4,4)
+list.deleteByIndex(3)
+// list.deleteByValue(10)
+list.print()
